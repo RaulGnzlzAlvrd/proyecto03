@@ -1,3 +1,7 @@
+import bcrypt
+import base64
+import hashlib 
+
 def sha256sum(phrase):
     """Regresa el sha256sum de phrase.
 
@@ -11,4 +15,7 @@ def sha256sum(phrase):
     str:
         El hash calculado con el algoritmo sha256sum
     """
-    pass
+    m = hashlib.sha256()
+    m.update(phrase.encode('utf-8'))
+    hashed = m.hexdigest()
+    return hashed

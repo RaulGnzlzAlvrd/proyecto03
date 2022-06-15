@@ -17,8 +17,8 @@ def save_keys(file_path, keys):
         point = keys[i]
         x = point[0]
         y = point[1]
-        line = str(x) "," str(y)
-        document.write(line)
+        line = str(x) + "," + str(y)
+        document.write(line+"\n")
     document.close()
 
   
@@ -47,7 +47,7 @@ def read_keys(file_path):
         points_str = line.split(",")
         point = (int(points_str[0]), int(points_str[1]))
         shares.append(point)
-    return points
+    return shares
 
 
 

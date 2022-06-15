@@ -3,4 +3,4 @@ import os
 
 load_dotenv()
 IV = os.environ["IV"]
-MODP = os.environ["MODP"]
+MODP = int(os.environ["MODP"])

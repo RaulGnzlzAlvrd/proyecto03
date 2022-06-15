@@ -1,5 +1,6 @@
-from zp_number import ZpNumber
-from polynomial import horner_rule
+from .zp_number import ZpNumber
+from .polynomial import horner_rule
+from .polynomial import lagrange_polynomial
 
 from ..config.default import MODP 
 def generate_shares(n, K, t):
@@ -43,6 +44,10 @@ def regenerate_key(shares):
     int
         La llave recuperada
     """
-    key = lagrange_polynomial(shares, 0)
-    hex_key = hex(key)[2:].upper()
+    keys = list()
+    for x,y in shares:
+        share = (ZpNumber(x, MODP), ZpNumber(y, MODP))
+        keys.append(share)
+    key = lagrange_polynomial(keys, 0)
+    hex_key = hex(key.value)[2:].upper()
     return hex_key

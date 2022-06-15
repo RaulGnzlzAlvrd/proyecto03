@@ -1,5 +1,5 @@
 import random
-from utils import inverse_zn
+from .utils import inverse_zn
 
 class ZpNumber:
     """Representa un número dentro de un campo Zp.

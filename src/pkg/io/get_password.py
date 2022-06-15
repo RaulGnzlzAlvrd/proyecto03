@@ -11,11 +11,9 @@ def get_password():
         La contraseña ingresada por el usuario
     """
     try:
-        p = getpass.getpass(prompt= 'Ingresa tu contraseña', stream=None)
+        p = getpass.getpass(prompt= 'Ingresa tu contraseña: ', stream=None)
 
     except Exception as err:
         print('ERROR:', err)
     else:
         return p
-
-get_password()

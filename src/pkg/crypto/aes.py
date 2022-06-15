@@ -9,6 +9,8 @@ def aes_encrypt(file_path, key):
     key: str
         La llave usada en el algoritmo AES
     """
+    
+
     pass
 
 def aes_decrypt(file_path, key):

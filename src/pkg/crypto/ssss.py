@@ -30,4 +30,6 @@ def regenerate_key(shares):
     int
         La llave recuperada
     """
-    pass
+    key = lagrange_polynomial(shares, 0)
+    hex_key = hex(key)[2:].upper()
+    return hex_key

@@ -8,10 +8,15 @@
 ## Descripción
 
 ## Instrucciones de uso
+- Se necesita del paquete `openssl` en linux por lo cuál debe estar instalado.
+> Por defecto ya viene en todas las distribuciones. También puede ser 
+instalado con la paquetería de la distribución en uso.
 - Instalar dependencias `pip install -r requirements.txt`
+- Copiar el archivo `.env.example` y renombrarlo `.env`. Ahí se configuran
+las variables del sistema.
 - Para ejecutar depende de la acción a realizar:
-	- Encriptar: `python -B src/main.py -c shares_path num_shares min_shares document_path` donde `shares_path` es el nombre del archivo donde se van a guardar los puntos (_shares_), `num_shares` el número total de puntos, `min_shares` el número mínimo de puntos necesarios para desencriptar el archivo y `document_path` el path del archivo a encriptar.
-	- Desencriptar: `python -B src/main.py -d shares_path document_path`, donde `shares_path` es el nombre del archivo que contiene al menos la cantidad de puntos necesarios para descifrar y `document_path` el nombre del documento cifrado.
+	- Encriptar: `python -B src/main.py c shares_path num_shares min_shares document_path` donde `shares_path` es el nombre del archivo donde se van a guardar los puntos (_shares_), `num_shares` el número total de puntos, `min_shares` el número mínimo de puntos necesarios para desencriptar el archivo y `document_path` el path del archivo a encriptar.
+	- Desencriptar: `python -B src/main.py d shares_path document_path`, donde `shares_path` es el nombre del archivo que contiene al menos la cantidad de puntos necesarios para descifrar y `document_path` el nombre del documento cifrado.
 
 > **Nota 1:** Si se ocupan path relativos, deben ser relativos al directorio base del proyecto.
 

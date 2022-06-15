@@ -1,3 +1,7 @@
+from zp_number import ZpNumber
+from polynomial import horner_rule
+
+from ..config.default import MODP 
 def generate_shares(n, K, t):
     """Genera n puntos (shares), usando el esquema SSSS.
 
@@ -5,7 +9,7 @@ def generate_shares(n, K, t):
     -----------
     n: int
         El número de puntos evaluados en el polinomio
-    K: int
+    K: str
         El término independiente en el polinomio generado.
     t: int
         El grado del polinomio generado (t-1)
@@ -15,7 +19,16 @@ def generate_shares(n, K, t):
     list of(tuples of int)
         Los puntos generados
     """
-    pass
+    k_int = int(K,16)
+    key = ZpNumber(k_int, MODP)
+    coefs = [ZpNumber.randomNumber(MODP) for _ in range(t)]
+    coefs[0] = key
+    X = [ZpNumber.randomNumber(MODP) for _ in range(n)]
+    shares = list()
+    for x in X:
+        y = horner_rule(x, coefs)
+        shares.append((x,y))
+    return shares
 
 def regenerate_key(shares):
     """Regenera la llave K a partir de los puntos.

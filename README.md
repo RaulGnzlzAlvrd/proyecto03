@@ -23,7 +23,17 @@ las variables del sistema.
 > **Nota 2:** La opción `-B` es para que no se generen archivos cache.
 
 ### Ejemplo
-**TODO:** Incluir un ejemplo de ejecución
+Como ejemplo se va a encriptar este mismo archivo, con 10 shares y requeridos al menos 6:
+```bash
+$ python -B src/main.py c README.md.frg 10 6 README.md
+```
+
+Para desencriptar:
+```bash
+$ python -B src/main.py d README.md.frg README.md.aes
+```
+
+El resultado desencriptado está en el archivo `DECRYPTED-README.md`
 
 ## Instrucciones de testeo
 Para ejecutar los tests, desde el directorio raíz (este mismo directorio) ejecutar:
